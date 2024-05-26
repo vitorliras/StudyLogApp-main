@@ -430,7 +430,6 @@ export class ConteudoComponent implements OnInit {
   }
 
   mudarStatusSub(ev: any,checked: boolean) {
-    this.configurando = true;
     const sub: SubAssunto = {
       id: ev.id,
       id_assunto: ev.id_assunto,
@@ -438,8 +437,10 @@ export class ConteudoComponent implements OnInit {
       titulo: ev.titulo,
       estudado: checked,
     };
+    console.log(sub)
     this.subAssuntoService.updateSubAssunto(sub).subscribe(()=>{
       this.carregarSubAssuntoCadastrados(false);
+      console.log("sub")
 
     });
    
