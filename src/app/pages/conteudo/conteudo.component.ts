@@ -93,7 +93,7 @@ export class ConteudoComponent implements OnInit {
         // this.dataSource = new MatTableDataSource<Assunto>(this.assuntoCadastrados);
       },
       (error: any) => {
-        this.mostrarMensagem("Cep digitado de forma incorreta!", "danger");
+        this.mostrarMensagem("Erro ao carregar conteudo!", "danger");
       }
     );
   }
@@ -157,7 +157,7 @@ export class ConteudoComponent implements OnInit {
 
       },
       (error: any) => {
-        this.mostrarMensagem("Cep digitado de forma incorreta!", "danger");
+        this.mostrarMensagem("Erro ao caarregar os assuntos!", "danger");
       }
     );
   }
@@ -172,7 +172,7 @@ export class ConteudoComponent implements OnInit {
         }
       },
       (error: any) => {
-        this.mostrarMensagem("Cep digitado de forma incorreta!", "danger");
+        this.mostrarMensagem("Erro ao carregar os subassuntos!", "danger");
       }
     );
   }

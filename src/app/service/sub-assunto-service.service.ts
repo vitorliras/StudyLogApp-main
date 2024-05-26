@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SubSubAssuntoServiceService {
 
-  apiUrl = environment.url + 'subAssunto/'
+  apiUrl = environment.url + 'outros/'
 
   constructor(private http: HttpClient) { }
 
