@@ -173,6 +173,8 @@ body {
       border-radius: 5px 5px 0px 0px;
       font: inherit;
       vertical-align: baseline;
+      padding-bottom: 10px !important;
+      margin-bottom: 15px;
   }
 
       .button-container {
