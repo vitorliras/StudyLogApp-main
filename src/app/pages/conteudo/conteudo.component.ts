@@ -439,12 +439,8 @@ export class ConteudoComponent implements OnInit {
       estudado: checked,
     };
     this.subAssuntoService.updateSubAssunto(sub).subscribe(()=>{
-      this.carregarSubAssuntoCadastrados(true);
-      if (this.idsConteudos.length > 0) {
-        this.carregarAssuntoCadastrados(true);
-      } else {
-        this.carregarAssuntoCadastrados();
-      }
+      this.carregarSubAssuntoCadastrados(false);
+
     });
    
   }
