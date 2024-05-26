@@ -153,6 +153,8 @@ export class ConteudoComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Assunto>(
           this.assuntoCadastrados
         );
+    this.configurando = false;
+
       },
       (error: any) => {
         this.mostrarMensagem("Cep digitado de forma incorreta!", "danger");
@@ -340,14 +342,7 @@ export class ConteudoComponent implements OnInit {
 
   pesquisar(pesquisa: boolean) {
     this.pesquisando = pesquisa;
-    if (this.idsConteudos.length > 0) {
-      this.carregarAssuntoCadastrados(true);
-    } else {
-      this.carregarAssuntoCadastrados();
-    }
-    if(pesquisa){
-      window.location.reload()
-    }
+   
   }
 
   leitura(elemento: Assunto) {
@@ -435,6 +430,7 @@ export class ConteudoComponent implements OnInit {
   }
 
   mudarStatusSub(ev: any,checked: boolean) {
+    this.configurando = true;
     const sub: SubAssunto = {
       id: ev.id,
       id_assunto: ev.id_assunto,
@@ -443,7 +439,12 @@ export class ConteudoComponent implements OnInit {
       estudado: checked,
     };
     this.subAssuntoService.updateSubAssunto(sub).subscribe(()=>{
-      this.carregarSubAssuntoCadastrados(true)
+      this.carregarSubAssuntoCadastrados(true);
+      if (this.idsConteudos.length > 0) {
+        this.carregarAssuntoCadastrados(true);
+      } else {
+        this.carregarAssuntoCadastrados();
+      }
     });
    
   }
