@@ -5,7 +5,7 @@ import { ConteudoComponent } from './pages/conteudo/conteudo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: ConteudoComponent },
+  { path: '', component: ConteudoComponent },
 ];
 
 @NgModule({

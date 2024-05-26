@@ -345,6 +345,9 @@ export class ConteudoComponent implements OnInit {
     } else {
       this.carregarAssuntoCadastrados();
     }
+    if(pesquisa){
+      window.location.reload()
+    }
   }
 
   leitura(elemento: Assunto) {
@@ -360,6 +363,7 @@ export class ConteudoComponent implements OnInit {
     } else {
       this.carregarAssuntoCadastrados();
     }
+    
   }
 
   applyFilter(event: any) {
