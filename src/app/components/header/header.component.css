@@ -1,0 +1,42 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 3px rgb(255, 206, 244);
+  padding: 5px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-nav-list {
+  width: 350px;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+
+}
+
+mat-list-item {
+  padding: 10px 20px;
+}
+
+.btn-header{
+  background-color: rgb(255, 206, 244) !important;
+}
+
+.option-hover {
+  transition: background-color 0.6s ease;
+}
+
+.option-hover:hover {
+  background-color: rgb(255, 206, 244);
+}

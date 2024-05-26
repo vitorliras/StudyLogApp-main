@@ -1,0 +1,273 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --cor-de-fundo: #EBECEE;
+  --branco: #FFFFFF;
+  --laranja: #EB9B00;
+  --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+  --fonte-principal: "Poppins";
+  --azul: #002F52;
+  --fonte-secundario: "Josefin Sans";
+  --preto: #000000;
+  --cinza: #474646;
+  --cinza-claro: #858585;
+  --vermelho: #D94937;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+body {
+  background-color: var(--branco);
+  font-family: var(--fonte-principal);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+
+
+.Config {
+  display: flex;
+  justify-content:center;
+  margin-top: 15px;
+  padding: 30px;
+}
+
+  .HeaderCard {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 152, 233);
+      border-bottom: 2px solid rgb(187, 187, 187);
+      padding-top: 1em;
+      border-radius: 5px 5px 0px 0px;
+      font: inherit;
+      vertical-align: baseline;
+  }
+
+      .button-container {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          min-width: 35px !important;
+          padding: 0px !important;
+          left: 20px !important;
+          top: 0;
+          margin-bottom: 15px !important;
+
+      }
+          button {
+              margin-right: 5px;
+              position: relative;
+          }
+
+      
+
+      .mat-card-title {
+          text-align: center;
+          color: #fafafa;
+          font-weight: 600;
+
+      }
+
+      .botaoOpcaoHeader:hover {
+          background-color: rgba(0, 0, 0, 0.203);
+      }
+  
+
+  .cardConfig {
+      width: 100%;
+  }
+
+  .btnConfig {
+      margin-top: 1em;
+  }
+
+  .divAviso {
+      color: red;
+      padding-bottom: 1em;
+  }
+
+  td, th{
+      padding-left: 20px !important;   
+  }
+
+  th:hover{
+      background-color: #ffffffe7;
+  }
+
+  .accent {
+      color: rgb(40, 115, 255);
+  }
+
+.mat-checkbox-input {
+  display: none; 
+}
+
+.mat-checkbox-label {
+  cursor: pointer;
+}
+
+.mat-checkbox-inner-container {
+  position: relative; 
+}
+
+.mat-checkbox-inner-container{
+  width: 20px !important; 
+  height: 20px !important;
+}
+
+.mat-checkbox-inner-container::before {
+  content: ''; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 20px !important; 
+  height: 20px !important;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.mat-checkbox-checked .mat-checkbox-inner-container::before {
+  background-color: rgb(253, 163, 234);
+  border-color: rgb(253, 163, 234); 
+}
+
+.mat-checkbox-disabled .mat-checkbox-inner-container::before {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0; 
+}
+
+  

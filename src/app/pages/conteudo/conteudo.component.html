@@ -1,0 +1,169 @@
+<!-- Parte de configuração de termos -->
+<div *ngIf="!pesquisando" class="col-12 Config">
+    <div class="row cardConfig">
+        <div class="col-12">
+            <mat-card-header class="mat-elevation-z3 HeaderCard">
+                <div class="d-flex">
+                    <div class="button-container">
+                        
+                        <!-- <button *ngIf="podeReverter" mat-raised-button class="botaoOpcaoHeader"
+                            (click)="abrirModalReverter()" matTooltip="Reverter">
+                            <span class="material-icons">restart_alt</span>
+                        </button> -->
+
+                    </div>
+                    <mat-card-title>{{this.assunto.numeracao}} - {{this.assunto.titulo}} ({{this.assunto.tituloConteudo}})</mat-card-title>
+                </div>
+            </mat-card-header>
+
+            <mat-card class="mat-elevation-z3" style="padding-bottom: 0.5em;">
+                <form [formGroup]="configForm">
+                    <mat-card-content>
+                        <div class="row">
+                            
+                            <mat-card class="mat-elevation-z3" style="padding-bottom: 0.5em;">
+                                <div class="filtro-container">
+                                    <button color="primary" class="filtro-button-sub"
+                                        (click)="pesquisar(true)"><mat-icon>keyboard_backspace</mat-icon></button>
+                                    <input *ngIf="dataSourceSub.data.length > 0" style="margin-left: 10px;" class="filtro-input" type="text" placeholder="Filtro" (input)="applyFilterSub($event)" #inputSub>
+                                    <div style="margin-left: 15px;">
+                                        <mat-checkbox [checked]="assunto.estudado" (change)="handleChange($event.checked)"(change)="handleChange($event.checked)" formControlName="estudado">
+                                            Todos material de <b style="font-weight: 800; font-size: 17px;">{{this.assunto.titulo}}</b> foram estudados?
+                                        </mat-checkbox>
+                                    </div>
+                                </div>
+                                <h2 style="margin-top: 20px; color: rgb(255, 76, 76);" *ngIf="!(dataSourceSub.data.length > 0)"> Não existe sub tópicos nesse tópico
+                                    <b style="font-weight: 600; font-size: 15px;">  {{this.assunto.titulo}} </b>
+                                     na matéria de 
+                                     <b style="font-weight: 600; font-size: 15px;">  {{this.assunto.tituloConteudo}} </b>                                    </h2>
+                                <div class="row" style="margin-top: 20px;"></div>
+
+                                <table *ngIf="dataSourceSub.data.length > 0" mat-table [dataSource]="dataSourceSub" class="mat-elevation-z8 col-12">
+                
+                                    <ng-container matColumnDef="numero">
+                                        <th class="th-sub"mat-header-cell *matHeaderCellDef> Número </th>
+                                        <td class="th-sub"  mat-cell *matCellDef="let element"> {{element.numeracao}} </td>
+                                    </ng-container>
+                
+                                    <ng-container cli matColumnDef="titulo">
+                                        <th class="th-sub"mat-header-cell *matHeaderCellDef> Assunto Principal </th>
+                                        <td class="th-sub"  mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+                                    </ng-container>
+                
+                                    <ng-container matColumnDef="estudado">
+                                        <th class="th-sub"  mat-header-cell *matHeaderCellDef> Foi Estudado? </th>
+                                        <td class="th-sub"  mat-cell *matCellDef="let element">
+                                            <div style="text-align: center; display: flex; align-items: center; justify-content: center;" >
+                                                <mat-checkbox [checked]="element.estudado" (change)="mudarStatusSub(element, $event.checked)"></mat-checkbox>
+                                            </div>
+                                        </td>
+                                    </ng-container>
+                
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumnsSub"></tr>
+                                    <tr class="tr-sub" mat-row *matRowDef="let row; columns: displayedColumnsSub; let element">
+                                    </tr>
+                                    <tr class="mat-row" *matNoDataRow>
+                                        <td class="mat-cell" colspan="4">Não há dados correspondentes ao filtro especificado.</td>
+                                      </tr>
+                                </table>
+                            </mat-card>
+
+
+                        </div>
+
+                       
+
+                      
+                    </mat-card-content>
+                </form>
+
+                <!-- <div class="row mb-3">
+                    <div class="col-5"></div>
+                    <button  [disabled]="!podeAtivar" mat-raised-button color="accent" name="Enviar"
+                        class="btnLogin btn-ativar col-2" (click)="abrirModalAtivar('Tem certeza que deseja ativar este termo?')">Ativar</button>
+                    <div class="col-5"></div>
+                </div> -->
+            </mat-card>
+            <mat-progress-bar *ngIf="configurando" class="col-12" mode="indeterminate"></mat-progress-bar>
+        </div>
+    </div>
+</div>
+
+<!-- Parte de pesquisa de termos -->
+<div *ngIf="pesquisando" class="col-12 Config">
+    <div class="row cardConfig" style="height: 550px !important;">
+        <div class="col-12">
+            <mat-card-header class="mat-elevation-z3 HeaderCard">
+                <div class="d-flex">
+                    <mat-card-title>Organização assuntos a serem estudados</mat-card-title>
+                </div>
+            </mat-card-header>
+
+            <mat-card class="mat-elevation-z3" style="padding-bottom: 0.5em;">
+                <div class="filtro-container">
+                    <input class="filtro-input" type="text" placeholder="Filtro" (input)="applyFilter($event)" #input>
+                    <div *ngFor="let item of conteudos">
+                        <button mat-raised-button color="primary" class="filtro-button {{item.ativado}}"
+                            (click)="filtrarConteudo(item.id)">{{item.apelido}}</button>
+                    </div>
+                </div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-12">
+
+                    <ng-container matColumnDef="numero">
+                        <th  mat-header-cell *matHeaderCellDef> Número </th>
+                        <td mat-cell *matCellDef="let element"> {{element.numeracao}} </td>
+                    </ng-container>
+
+                    <ng-container cli matColumnDef="conteudo">
+                        <th  mat-header-cell *matHeaderCellDef> Matéria </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tituloConteudo}} </td>
+                    </ng-container>
+
+                    <ng-container cli matColumnDef="titulo">
+                        <th mat-header-cell *matHeaderCellDef> Assunto Principal </th>
+                        <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+                    </ng-container>
+
+                    <ng-container cli matColumnDef="sub">
+                        <th  mat-header-cell *matHeaderCellDef> Sub assuntos </th>
+                        <td style="text-align: center;" mat-cell *matCellDef="let element"> {{element.quantidadeSubAssuntoFeitos }}/{{element.quantidadeSubAssunto }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="estudado">
+                        <th mat-header-cell *matHeaderCellDef> Foi Estudado? </th>
+                        <td style="text-align: center;" mat-cell *matCellDef="let element">
+                            <span *ngIf="element.estudado">
+                                <mat-icon style="color: rgba(255, 124, 227, 0.747);" class="icon-ativo">check_circle</mat-icon>
+                            </span>
+                            <span *ngIf="!element.estudado">
+                                <mat-icon style="color: #ccc;" class="icon-ativo">highlight_off</mat-icon>
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- <ng-container matColumnDef="sigla">
+                        <th (click)="ordenarSigla()" mat-header-cell *matHeaderCellDef>Sigla </th>
+                        <td mat-cell *matCellDef="let element"> {{element.sigInstituicao }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="endereco">
+                        <th (click)="ordenarEndereco()" mat-header-cell *matHeaderCellDef>Endereço </th>
+                        <td mat-cell *matCellDef="let element"> {{element.desEndereco }} </td>
+                    </ng-container> -->
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr class="tr-ass" mat-row *matRowDef="let row; columns: displayedColumns; let element" (click)="leitura(element)">
+                    </tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">Não há dados correspondentes ao filtro especificado.
+                            "{{input?.value}}"</td>
+                    </tr>
+                </table>
+            </mat-card>
+
+            <mat-progress-bar *ngIf="configurando" class="col-12" mode="indeterminate"></mat-progress-bar>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<mat-toolbar  color="primary">
+    <div class="col-2">
+        <button class="btn-header" mat-icon-button (click)="toggleMenu()">
+            <mat-icon>{{menuOpen ? 'close' : 'menu'}}</mat-icon>
+        </button>
+    </div>
+    <h2 style="margin-left: 20px;"><b style="font-weight: 600;">Study</b>Log</h2>
+    <!-- <span class="spacer"></span> -->
+    <button class="btn-header" mat-icon-button>
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-nav-list *ngIf="menuOpen">
+    <mat-list-item *ngFor="let option of options" (click)="tela(option.endpoint)" class="option-hover">
+      {{ option.title }}
+    </mat-list-item>
+  </mat-nav-list>
+  
