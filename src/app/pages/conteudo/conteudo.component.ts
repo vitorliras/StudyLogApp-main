@@ -437,10 +437,8 @@ export class ConteudoComponent implements OnInit {
       titulo: ev.titulo,
       estudado: checked,
     };
-    console.log(sub)
     this.subAssuntoService.updateSubAssunto(sub).subscribe(()=>{
       this.carregarSubAssuntoCadastrados(false);
-      console.log("sub")
 
     });
    
