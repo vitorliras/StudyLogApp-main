@@ -132,3 +132,43 @@
     .tr-ass:hover{
       background-color: #ffe8f8 !important;
     }
+
+    @media (max-width: 768px) {
+      .Config {
+        padding: 15px;
+      }
+    
+      .filtro-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .filtro-button {
+        margin-bottom: 0.5em;
+      }
+    
+      .table-container {
+        overflow-x: auto;
+      }
+      .th-ass:nth-child(1), .th-sub:nth-child(1) {
+        display: none;
+      }
+      
+      .th-ass:nth-child(2) {
+        display: none;
+       
+      }
+      .th-ass, td:nth-child(3) {
+        max-width: 100px ; 
+      }
+
+      .th-ass:nth-child(4) {
+        max-width: 20px !important; 
+      }
+
+      .th-ass:nth-child(5) {
+        max-width: 20px !important; 
+      }
+      
+      
+    }
