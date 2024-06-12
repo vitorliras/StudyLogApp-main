@@ -11,14 +11,14 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
   options = [
     { title: 'Início', endpoint: '/' },
-    { title: 'Conhecimentos Especifícos', endpoint: '/conhecimentos-especificos' },
-    { title: 'Noções Criminalista', endpoint: '/noces-criminalista' },
-    { title: 'Noções de Medicina Legal', endpoint: '/noces-medicina-legal' },
-    { title: 'Noções de Direito Penal', endpoint: '/noces-direito-penal' },
-    { title: 'Noções De Direito Processual Penal', endpoint: '/noces-direito-processual-penal' },
-    { title: 'Língua Portuguesa', endpoint: '/lingua-portuguesa' },
-    { title: 'Raciocínio Lógico', endpoint: '/raciocinio-logico' },
-    { title: 'Noções de Documentos Técnicos', endpoint: '/noces-documentos-tecnicos' }
+    { title: 'Supresa', endpoint: '/supresa' },
+    // { title: 'Noções Criminalista', endpoint: '/noces-criminalista' },
+    // { title: 'Noções de Medicina Legal', endpoint: '/noces-medicina-legal' },
+    // { title: 'Noções de Direito Penal', endpoint: '/noces-direito-penal' },
+    // { title: 'Noções De Direito Processual Penal', endpoint: '/noces-direito-processual-penal' },
+    // { title: 'Língua Portuguesa', endpoint: '/lingua-portuguesa' },
+    // { title: 'Raciocínio Lógico', endpoint: '/raciocinio-logico' },
+    // { title: 'Noções de Documentos Técnicos', endpoint: '/noces-documentos-tecnicos' }
   ];
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -31,6 +31,14 @@ export class HeaderComponent implements OnInit {
 
   tela(endpoint: string){
     this.router.navigate([endpoint])
+    this.toggleMenu()
   }
+
+  tela2(endpoint: string){
+    this.router.navigate([endpoint])
+    this.menuOpen = false
+    }
+
+
 
 }

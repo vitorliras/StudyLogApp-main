@@ -28,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import { MatSnackBarModule } from '@angular/material/snack-bar'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SupresaComponent } from './pages/supresa/supresa.component'; 
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     MensagemComponent,
     ConteudoComponent,
+    SupresaComponent,
    
   ],
   imports: [

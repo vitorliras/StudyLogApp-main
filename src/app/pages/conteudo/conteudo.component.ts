@@ -10,6 +10,8 @@ import { SubSubAssuntoServiceService } from "src/app/service/sub-assunto-service
 import { ConteudoServiceService } from "src/app/service/conteudo-service.service";
 import { Conteudo } from "src/app/models/conteudo";
 import { SubAssunto } from "src/app/models/subAssunto";
+import { Frase } from "src/app/models/frase";
+import { FraseService } from "src/app/service/frase.service";
 
 @Component({
   selector: "app-conteudo",
@@ -40,6 +42,8 @@ export class ConteudoComponent implements OnInit {
   conteudo!: Conteudo;
   assunto!: Assunto;
   subAssunto!: SubAssunto;
+  frases: Frase[] = [];
+  frase!: Frase;
   idsConteudos: number[] = [];
 
   ordenacaoCodigoAtual: "crescente" | "decrescente" | "padrao" = "padrao";
@@ -73,6 +77,7 @@ export class ConteudoComponent implements OnInit {
     private assuntoService: AssuntoServiceService,
     private subAssuntoService: SubSubAssuntoServiceService,
     private conteudoService: ConteudoServiceService,
+    private fraseService: FraseService,
     private snackBar: MatSnackBar
   ) {
     this.dataSource = new MatTableDataSource<Assunto>([]);
@@ -82,6 +87,24 @@ export class ConteudoComponent implements OnInit {
   ngOnInit(): void {
     this.carregarConteudoCadastrados();
     this.carregarSubAssuntoCadastrados();
+    this.carregarFrases()
+  }
+
+  carregarFrases() {
+    this.fraseService.getAllFrase().subscribe(
+      (frases) => {
+        this.frases = frases.map((frase) => {
+          return frase;
+        });
+
+        this.frase = this.frases.filter(f => !(f.usado))[0]
+        this.frase.usado = true;
+        this.fraseService.updateFrase(this.frase).subscribe()
+      },
+      (error: any) => {
+        this.mostrarMensagem("Erro ao carregar conteudo!", "danger");
+      }
+    );
   }
 
   carregarConteudoCadastrados() {

@@ -1,0 +1,48 @@
+.slide-container {
+    position: relative;
+    max-width: 450px;
+    margin: auto;
+    margin-top: 40px;
+    max-height: 450px;
+  }
+  
+  .slide {
+    display: none;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slide img {
+    max-width: 450px;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 206, 244, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+
+  .romantic-text {
+    margin-bottom:20px;
+  }
+  
+ 

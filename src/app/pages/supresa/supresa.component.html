@@ -1,0 +1,35 @@
+<div class="slide-container">
+    <div class="slide" *ngFor="let photo of photos; let i = index"
+        [ngStyle]="{'display': currentIndex === i ? 'block' : 'none'}">
+        <img src="{{ photo.src }}" alt="{{photo.alt}}">
+    </div>
+    <button class="prev" (click)="prevSlide()">&#10094;</button>
+    <button class="next" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<div class="romantic-text">
+    <P>
+        Quando olho para você, vejo uma força imensurável, uma luz que irradia esperança e determinação. Quero que saiba
+        o quanto te amo, não apenas pelo que és, mas pelo que estás se tornando a cada dia.
+        <br />
+        <br />
+        Ver você se dedicando aos estudos com tanta paixão e empenho enche meu coração de orgulho e admiração. Sua
+        jornada rumo ao conhecimento para conquistar seu sonho não apenas te engrandece, mas também inspira todos ao seu redor, inclusive a mim.
+        <br />
+        <br />
+        Saiba que estou aqui, em cada momento, orando por você, torcendo por você e acreditando em você. Você está indo
+        incrivelmente bem, e não tenho dúvidas de que alcançará cada objetivo que almeja. Sua determinação e
+        inteligência são como um farol, iluminando o caminho para um futuro brilhante.
+        <br />
+        <br />
+        Continue seguindo seus sonhos, meu amor, pois você é capaz de conquistar tudo o que deseja. E quando alcançar o
+        topo, estarei aqui, segurando sua mão com todo o amor e apoio do mundo.
+        <br />
+        <br />
+        Você é minha inspiração, minha musa, meu amor, minha razão para sorrir. Te amo mais do que as palavras podem
+        expressar.
+        <br />
+        <br />
+        Feliz dia dos Namorados e bons estudos
+    </P>
+</div>
